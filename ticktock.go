@@ -112,8 +112,8 @@ func (s *Scheduler) Cancel(name string) {
 	if !ok {
 		return
 	}
-	job.cancel()
 	delete(s.jobs, name)
+	go job.cancel()
 }
 
 // Starts to schedule the jobs.
@@ -170,10 +170,11 @@ retryLoop:
 }
 
 func (j *jobC) cancel() {
-	j.cancelSig <- true
 	if j.timer != nil {
 		j.timer.Stop()
 	}
+
+	j.cancelSig <- true
 }
 
 func (j *jobC) done() {
