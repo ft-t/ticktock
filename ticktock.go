@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/rakyll/ticktock/t"
+	"github.com/ft-t/ticktock/t"
 )
 
 var (

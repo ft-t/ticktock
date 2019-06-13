@@ -16,7 +16,7 @@ ticktock.Start()
 Import and `go get` the ticktock package.
 
 ~~~ go
-import "github.com/rakyll/ticktock"
+import "github.com/ft-t/ticktock"
 ~~~
 
 The jobs you would like to schedule needs to implement `ticktock.Job` interface by providing runnable. The following example is a sample job that prints the given message.
